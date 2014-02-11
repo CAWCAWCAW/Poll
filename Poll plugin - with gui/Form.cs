@@ -90,12 +90,13 @@ namespace Poll
                     #endregion addquestion
                 case "addanswer":
                     #region addanswer
-                    if (args.Parameters.Count != 2)
+                    if (args.Parameters.Count < 2)
                     {
                         args.Player.SendErrorMessage("Invalid syntax! valid syntax: /poll addanswer <answer>");
                         return;
                     }
-                    pollitem.answers.Add(args.Parameters[1].ToLower());
+                    str = String.Join(" ", args.Parameters.GetRange(1, args.Parameters.Count - 1));
+                    pollitem.answers.Add(str.ToLower());
                     args.Player.SendMessage("answer added: " + args.Parameters[1].ToLower(), PollColor);
                     break;
                     #endregion addanswer
@@ -232,8 +233,8 @@ namespace Poll
                 MessageBox.Show("Answer may not contain spaces!");
                 return;
             }
-            listBox1.Items.Add(textBoxAnswer.Text);
-            pollitem.answers.Add(textBoxAnswer.Text);
+            listBox1.Items.Add(textBoxAnswer.Text.Trim().ToLower());
+            pollitem.answers.Add(textBoxAnswer.Text.Trim().ToLower());
             labelanswercount.Text = string.Format("Answers ({0}):",listBox1.Items.Count);
         }
 
