@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace Poll
 {
-    [ApiVersion(1, 14)]
+    [ApiVersion(1, 15)]
     public class poll : TerrariaPlugin
     {
         public static bool FormOpen = false;
