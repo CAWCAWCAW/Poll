@@ -59,7 +59,7 @@ namespace Poll
             {
                 if (args.Player.Group.HasPermission("poll.admin"))
                 {
-                    args.Player.SendErrorMessage("Invalid syntax! proper syntax: /poll <reset/addquestion/addanswer/end/showresult/push/vote/gui>");
+                    args.Player.SendErrorMessage("Invalid syntax! proper syntax: /poll <reset/addquestion/addanswer/end/showresult/start/vote/gui>");
                     return;
                 }
                 else
@@ -188,7 +188,7 @@ namespace Poll
                     break;
                 default:
                     if (args.Player.Group.HasPermission("poll.admin"))
-                        args.Player.SendErrorMessage("Invalid syntax! proper syntax: /poll <reset/addquestion/addanswer/end/showresult/push/vote/gui>");
+                        args.Player.SendErrorMessage("Invalid syntax! proper syntax: /poll <reset/addquestion/addanswer/end/showresult/start/vote/gui>");
                    
                     else
                         args.Player.SendErrorMessage("Invalid syntax! proper syntax: /poll vote <answer>");
@@ -240,7 +240,7 @@ namespace Poll
 
 
 
-        private void button2_Click(object sender, EventArgs e) // /poll push
+        private void button2_Click(object sender, EventArgs e) // /poll start
         {
             if (pollitem.question == null)
             {
